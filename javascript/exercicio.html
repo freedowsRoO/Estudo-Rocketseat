@@ -1,0 +1,45 @@
+<html>
+
+<Head>
+    <title> Curso Javascript </title>
+</Head>
+
+<body>
+    <button id='btnCriaQuadrado'> Criar Quadrado </button>
+    <div id="app"></div>
+
+    <script>
+        var btnCriaQuadrado = document.getElementById('btnCriaQuadrado');
+        btnCriaQuadrado.onclick = function () {
+            var boxElement = document.createElement("div");
+            boxElement.style.width = 100;
+            boxElement.style.height = 100;
+            boxElement.style.marginBottom = 10;
+            boxElement.style.backgroundColor = "#004";
+
+            var container = document.querySelector('#app');
+            container.appendChild(boxElement);
+        };
+
+        function getRandomColor() {
+            var letters = "0123456789ABCDEF";
+            var color = "#";
+            for (var i = 0; i < 6; i++) {
+                color += letters[Math.floor(Math.random() * 16)];
+            }
+            return color;
+        }
+        var newColor = getRandomColor(); // #E943F0
+
+        var Quadrado = document.getElementsByTagName('div');
+        
+        //atribuindo para todos os elementos o onclick
+        for (var i=0; i <= Quadrado.length-1; i++) {
+            Quadrado[i].onclick = function() {
+                Quadrado.style.backgroundColor = newColor;
+            }
+        }
+    </script>
+</body>
+
+</html>

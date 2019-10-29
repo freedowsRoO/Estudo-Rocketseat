@@ -1,0 +1,26 @@
+<html>
+
+<Head>
+    <title> Curso Javascript </title>
+</Head>
+
+<body>
+    <div id="app">
+      
+    </div> 
+
+    <script>
+        var linkElement = document.createElement('a');
+
+        linkElement.setAttribute('href', 'https://www.google.com');
+    
+        var textElement = document.createTextNode('Acessar site');
+
+        linkElement.appendChild(textElement);
+
+        var container = document.querySelector('#app');
+        container.appendChild(linkElement);
+    </script>
+</body>
+
+</html>

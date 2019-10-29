@@ -1,0 +1,47 @@
+<html>
+    <Head>        
+        <title> Curso Javascript </title>
+    </Head>
+    <body>   
+        <input onkeypress="mostraAlerta()"/>
+        <button id="botao" class="botao"> Botão 1 </button>   
+        
+        <div id="app">
+            <input type="text" name="nome" id="nome"/>
+            <input type="text" name="senha" id="senha"/>
+            <button id="teste" class="teste"> Botão 2 </button>  
+        </div> 
+
+        <script>
+          
+          function mostraAlerta(){
+              alert('Hello World')
+          }
+
+          //Retorna apenas o eleento com ID NOME
+          var imputElementID = document.getElementById("nome");
+
+          //Retorna um VETOR com todos os elementos inputs podendo 
+          //pegar apenas 1 posicao do array tbm colocando [1]....
+          var imputElementTAG = document.getElementsByTagName("input")[0];
+          
+          //Retorna um VETOR com todos os elementos com a classe 
+          var imputElementClass = document.getElementsByClassName("botao");
+
+          //Percorre toda a DOM para achar o elemento
+          //Defini o caminho 
+          //body > div com id = APP > procura todos os elementos input
+          var imputElementQuery = document.querySelector("div#app input");
+          //Mesma coisa que o de cima mas trazendo TODOS os inputs em um VETOR
+          var imputElementQueryALL = document.querySelectorAll("div#app input");
+          //referenciando o elemento pela propriedade
+          var imputElementQuery2 = document.querySelector("div#app input[name=senha]"); 
+
+          console.log(imputElementClass);
+          
+          imputElementClass.onclick = function() {
+              alert('Botao cliclado');
+          }
+        </script>
+    </body>
+</html>

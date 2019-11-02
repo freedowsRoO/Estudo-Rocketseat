@@ -5,18 +5,30 @@
 </Head>
 
 <body>
+    <input id="inputNome" type="text" name="nome">
+    <button onClick="adicionaNode()">Adicionar</button>
+
     <button id='btnCriaQuadrado'> Criar Quadrado </button>
     <div id="app"></div>
 
     <script>
+        var nomes = ["Diego", "Gabriel", "Lucas"];
+
         var btnCriaQuadrado = document.getElementById('btnCriaQuadrado');
         btnCriaQuadrado.onclick = function () {
+            //Cria elemento div dinamicamente e adiciona o style
             var boxElement = document.createElement("div");
             boxElement.style.width = 100;
             boxElement.style.height = 100;
             boxElement.style.marginBottom = 10;
             boxElement.style.backgroundColor = "#004";
+            boxElement.className = "box";
 
+            //adiciona a ação na nova div
+            boxElement.onmouseover = function () {
+                boxElement.style.backgroundColor = getRandomColor();
+            }
+            //adiciona elemento na div pai
             var container = document.querySelector('#app');
             container.appendChild(boxElement);
         };
@@ -28,17 +40,30 @@
                 color += letters[Math.floor(Math.random() * 16)];
             }
             return color;
-        }
-        var newColor = getRandomColor(); // #E943F0
+        };
 
-        var Quadrado = document.getElementsByTagName('div');
-        
-        //atribuindo para todos os elementos o onclick
-        for (var i=0; i <= Quadrado.length-1; i++) {
-            Quadrado[i].onclick = function() {
-                Quadrado.style.backgroundColor = newColor;
-            }
-        }
+        //Adiciona a UL baseada no ARRAY NOMES
+        for (var i = 0; i <= nomes.length - 1; i++) {
+            var ulElement = document.createElement("ul");
+            var textElement = document.createTextNode(nomes[i]);
+            ulElement.appendChild(textElement);
+
+            //adiciona elemento na div pai
+            var container = document.querySelector('#app');
+            container.appendChild(ulElement);
+        };
+
+        //adiciona UL na tela conforme input
+        function adicionaNode() {
+            var inputText = document.getElementById("inputNome");
+            var ulElement = document.createElement("ul");
+            textElement = document.createTextNode(inputText.value) ;
+            ulElement.appendChild(textElement);
+            container.appendChild(ulElement);
+
+            inputText.value = '';
+        };
+
     </script>
 </body>
 

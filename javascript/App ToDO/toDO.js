@@ -2,11 +2,7 @@ var listElement = document.querySelector('#app ul');
 var inputElement = document.getElementById('inputAddTarefa');
 var buttonElement = document.getElementById('btnAddTarefa');
 
-var todos = [
-    'Fazer café',
-    'Estudar javascript',
-    'Acessar comunidade'
-];
+var todos = JSON.parse(localStorage.getItem('list_todos')) || [];
 
 function renderTodos() {
     listElement.innerHTML = '';
@@ -35,12 +31,17 @@ function addToDO() {
     todos.push(todoText);
     inputElement.value = '';
     renderTodos();
-    console.log(todoText);
+    saveStorage();
 }
 
 function excluirToDo(pos){
     todos.splice(pos,1);
     renderTodos();
+    saveStorage();
+}
+
+function saveStorage() {
+    localStorage.setItem('list_todos', JSON.stringify(todos));
 }
 
 buttonElement.onclick = addToDO;

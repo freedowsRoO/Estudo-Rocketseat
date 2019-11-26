@@ -1,3 +1,8 @@
-{    //preset env convert o codigo JS apra funcionar em diferentes navegadores e plataformas   
-    "presets": ["@babel/preset-env"]
+{ //preset env convert o codigo JS apra funcionar em diferentes navegadores e plataformas   
+    "presets": [
+        "@babel/preset-env"
+    ],
+    "plugins": [
+        "@babel/plugin-proposal-object-rest-spread"
+    ]
 }
